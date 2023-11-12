@@ -1,0 +1,45 @@
+[
+  {
+    "qrCode": {
+      "_options": {
+        "type": "svg",
+        "shape": "square",
+        "width": 150,
+        "height": 150,
+        "data": "fefefefeefefefef",
+        "margin": 0,
+        "qrOptions": {
+          "typeNumber": 0,
+          "errorCorrectionLevel": "Q"
+        },
+        "imageOptions": {
+          "hideBackgroundDots": true,
+          "imageSize": 0.4,
+          "margin": 0
+        },
+        "dotsOptions": {
+          "type": "default",
+          "color": "#000000"
+        },
+        "backgroundOptions": {
+          "round": 0,
+          "color": "#fff"
+        }
+      },
+      "_qr": {},
+      "_svg": {},
+      "_svgDrawingPromise": {},
+      "_container": {
+        "__svelte_meta": {
+          "loc": {
+            "file": "C:/Users/kraken/Desktop/Touchify/QRCodeGenerator/QRCodeGenerator/frontend/src/components/generateQrCode.svelte",
+            "line": 102,
+            "column": 4,
+            "char": 1927
+          }
+        }
+      }
+    },
+    "name": "fefefefeefefefef"
+  }
+]

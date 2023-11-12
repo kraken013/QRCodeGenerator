@@ -1,0 +1,25 @@
+{
+    "fr": {
+        "contentTitle": "Contenu du QR Code",
+        "contentButton": ["URL","Email","Texte"],
+        "styleTitle": "Style général",
+        "styleButton": ["Carré","Arrondi","Points","Classy"],
+        "colorTitle": "Couleur",
+        "downloadButton": "Télécharger le QR Code",
+        "inputURL": "entrer votre URL",
+        "inputEmail": "entrer votre email",
+        "inputText": "entrer votre texte"
+    },
+    "en": {
+        "contentTitle": "QR Code content",
+        "contentButton": ["URL","Email","Text"],
+        "styleTitle": "General style",
+        "styleButton": ["Square","Rounded","Dots","Classy"],
+        "colorTitle": "Color",
+        "downloadButton": "Download QR Code",
+        "inputURL": "enter your URL",
+        "inputEmail": "enter your email",
+        "inputText": "enter your text"
+
+    }
+}

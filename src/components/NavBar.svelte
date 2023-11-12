@@ -1,14 +1,15 @@
 <script lang="ts">
     import svelteLogo from './../assets/svelte.svg';
-    import Switch from './../lib/Switch.svelte';
     import { createEventDispatcher } from 'svelte';
 
     const dispatch = createEventDispatcher();
 
+
+
     export let language: string;
     export let themeName: string;
-    
-   console.log(themeName);
+    console.log("NAV BAR LANG ", language)
+
 
     function selectedTheme() {
         themeName = themeName === 'light' ? 'dark' : 'light';
@@ -17,6 +18,7 @@
     }
     const changeLanguage = () => {
         language = language === 'fr' ? 'en' : 'fr';
+        console.log("lang", language)
         dispatch('updateLanguage', language);
     }
 </script>
@@ -30,17 +32,34 @@
     <ul>
         <li>
            <button on:click={selectedTheme}>
-                {themeName}
+                {#if themeName === 'light'}
+                    <span>Dark</span>
+                {:else}
+                  <span>Light</span>
+                {/if}
             </button>
         </li>
-        <li>
-            <button on:click={changeLanguage}>
+        <li style="width: 2rem; height: 2rem;">
+            <button on:click={changeLanguage} style="overflow:hidden; width: 100%; height: 100%; border-radius:50%;">
                 {#if language === 'fr'}
-                  <span>FR</span>
+                  <img src="./../public/assets/kingdom_gb_gbr_icon.png" alt="GB Flag" style="object-fit: fill;" />
                 {:else}
-                  <span>EN</span>
+                <img src="./../public/assets/france_icon.png" alt="FR Flag" style="object-fit: fill;" />
                 {/if}
             </button>
         </li>
     </ul>
 </nav>
+
+<style>
+    @media (min-width: 350px) {
+     h1 {
+        font-size: 1rem;
+        margin-left: 1rem;
+     }
+
+     span {
+        font-size: 1rem;
+     }
+    }
+</style>

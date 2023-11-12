@@ -4,32 +4,34 @@
   import ContentQrCode from './components/ContentQrCode.svelte';
   import GenerateQrCode from './components/generateQrCode.svelte';
   import StyleQrCode from './components/styleQrCode.svelte';
-  
-  let themeName = `light`;
-  let language = `fr`;
 
+
+ 
+  
+  $: themeName = `light`;
+  $: language = `fr`;
   let input = 'Hello World';
   let selectedType = 'default';
   let colorValue = '#000000';
   let dropedImage = "";
   
-  function updateType(newType) {
+  function updateType(newType: string) {
     selectedType = newType;
   }
 
-  function updateColor(newColor) {
+  function updateColor(newColor: string) {
     colorValue = newColor;
   }
 
-  function updateTheme(newTheme) {
+  function updateTheme(newTheme: string) {
     themeName = newTheme;
   }
 
-  function updateLanguage(newLanguage) {
+  function updateLanguage(newLanguage: string) {
     language = newLanguage;
   }
 
-  function updateInput(newInput) {
+  function updateInput(newInput: string) {
     input = newInput;
   }
 
@@ -42,25 +44,60 @@
   <link rel="stylesheet" href={`./../public/css/${themeName}.css`} />
 </svelte:head>
 
-<main class="flex items-center justify-center p-4 mt-16">
-  <div class="container flex flex-wrap items-start justify-center gap-8 mx-auto">
-    <div class="flex-1 p-6 space-y-6">
+<main class="flex flex-wrap items-center justify-center">
+  <div class="container flex flex-wrap items-start justify-center">
+    <!-- colonne de gauche -->
+    <div class="w-full p-6 space-y-6 left-column">
       <Box>
-        <!-- <input class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" bind:value={input} type="text" placeholder="Entrez votre texte" /> -->
-        <ContentQrCode {input} on:updateInput={e => updateInput(e.detail)} />
-      </Box>
+        <ContentQrCode 
+        language={language} 
+        input={input} 
+        on:updateInput={e => updateInput(e.detail)}  
+        on:updateLanguage={e => updateLanguage(e.detail)} 
+    />
+          </Box>
 
       <Box>
-        <StyleQrCode {selectedType} {colorValue} on:updateType={e => updateType(e.detail)} on:updateColor={e => updateColor(e.detail)} />
+        <StyleQrCode language={language} {selectedType} {colorValue} on:updateType={e => updateType(e.detail)} on:updateColor={e => updateColor(e.detail)} />
       </Box>
       
     </div>
     
-    <div class="w-1/3">
-      <div class="fixed right-0 z-10 p-6 mt-10 space-y-6 top-10" style="width: 33%;">
-        <GenerateQrCode text={input} selectedType={selectedType} colorValue={colorValue} dropedImage={dropedImage} />
+    <div class="w-full space-y-6 right-column">
+      <div class="p-6 qr-code">
+        <GenerateQrCode langage={language} text={input} selectedType={selectedType} colorValue={colorValue} dropedImage={dropedImage} />
       </div>
     </div>
   </div>
 </main>
+
+<style>
+  @media (min-width: 350px) {
+    .left-column {
+      margin-top: 14vh;
+      width: 100%;
+    }
+    .right-column {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 819px) {
+    main {
+      margin-top: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+    .left-column {
+      margin: 0;
+      width: 50%;
+    }
+    .right-column {
+      margin: 0;
+      width: 50%;
+    }
+  }
+</style>
 

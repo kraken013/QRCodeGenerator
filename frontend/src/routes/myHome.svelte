@@ -31,6 +31,17 @@
     function updateInput(newInput: string) {
       input = newInput;
     }
+
+    function updateDropedImage(files: FileList) {
+    if (files.length > 0) {
+      const file = files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        dropedImage = e.target.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
     
     
   </script>
@@ -43,7 +54,6 @@
     
     <main class="flex flex-wrap items-center justify-center">
       <div class="container flex flex-wrap items-start justify-center">
-        <!-- colonne de gauche -->
         <div class="w-full p-6 space-y-6 left-column">
           <Box>
             <ContentQrCode 
@@ -56,8 +66,23 @@
           
           <Box>
             <StyleQrCode language={language} {selectedType} {colorValue} on:updateType={e => updateType(e.detail)} on:updateColor={e => updateColor(e.detail)} />
-            </Box>
+              <div class="flex flex-wrap items-center justify-center">
+                <div class="flex flex-wrap items-center justify-center">
+                  <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-500 hover:text-blue-700 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500 border border-blue-500 w-40 h-10 flex items-center justify-center">
+                    <span>Image</span>
+                    <input
+                      id="file-upload"
+                      name="file-upload"
+                      type="file"
+                      class="sr-only"
+                      on:change={e => updateDropedImage(e.target.files)}
+                    />
+                  </label>
+                </div>
+              </div>
+          </Box>
             
+
           </div>
           
           <div class="w-full space-y-6 right-column">

@@ -8,7 +8,13 @@
         "downloadButton": "Télécharger le QR Code",
         "inputURL": "entrer votre URL",
         "inputEmail": "entrer votre email",
-        "inputText": "entrer votre texte"
+        "inputText": "entrer votre texte",
+        "savedQRTitle": "Mes QR Codes sauvegardés",
+        "color": "Couleur",
+        "width": "Largeur",
+        "height": "Hauteur",
+        "save": "Sauvegarder QR Code",
+        "qrPage": "Mes QR Codes"
     },
     "en": {
         "contentTitle": "QR Code content",
@@ -19,7 +25,12 @@
         "downloadButton": "Download QR Code",
         "inputURL": "enter your URL",
         "inputEmail": "enter your email",
-        "inputText": "enter your text"
-
+        "inputText": "enter your text",
+        "savedQRTitle": "My saved QR Codes",
+        "color": "Color",
+        "width": "Width",
+        "height": "Height",
+        "save": "Save QR Code",
+        "qrPage": "My QR Codes"
     }
 }

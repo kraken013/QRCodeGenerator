@@ -65,6 +65,9 @@
     qrCode.update({ width: qrSize, height: qrSize });
   }
 
+  $: if (dropedImage && qrCode) {
+    qrCode.update({ image: dropedImage });
+  }
 
   $: if (selectedType && qrCode) {
     let dotsType:any;
